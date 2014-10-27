@@ -6,7 +6,15 @@ watch    = require('gulp-watch'),
 less     = require('gulp-less'),
 jade     = require('gulp-jade'),
 imagemin = require('gulp-imagemin'),
-pngcrush = require('imagemin-pngcrush');
+pngcrush = require('imagemin-pngcrush'),
+connect  = require('gulp-connect');
+
+gulp.task('connect', function() {
+  connect.server({
+    root: 'dist'
+  });
+});
+
 
 gulp.task('images', function () {
   return gulp.src('assets/images/*')
@@ -38,6 +46,6 @@ gulp.task('less', function () {
 
 
 gulp.task('watch', function() {
-  gulp.watch('app/templates/**/*.jade', ['jade']);
-  gulp.watch('app/stylesheets/**/*.less', ['less']);
+  gulp.watch('templates/**/*.jade', ['jade']);
+  gulp.watch('assets/stylesheets/**/*.less', ['less']);
 });
