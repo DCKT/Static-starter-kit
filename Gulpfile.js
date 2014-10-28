@@ -44,6 +44,7 @@ gulp.task('less', function () {
     .pipe(gulp.dest('./dist/css'));
 })
 
+gulp.task('build', ['jade', 'less', 'images']);
 
 gulp.task('watch', function() {
   gulp.watch('templates/**/*.jade', ['jade']);
